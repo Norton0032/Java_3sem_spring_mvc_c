@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Добавление новой группы</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/groups/new}" th:object="${newGroup}">
+  <label for="groupName">Введите Имя группы: </label>
+  <input type="text" th:field="*{groupName}" id="groupName"/>
+  <div style="color:red" th:if="${#fields.hasErrors('groupName')}" th:errors="*{groupName}"></div>
+  <br>
+  <input type="submit" value="Создать"/>
+</form>
+
+</body>
+</html>

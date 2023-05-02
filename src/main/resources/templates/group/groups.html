@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring tasks</title>
+</head>
+<body>
+<p th:text="${GroupsName}"/>
+<div th:each="gr : ${Groups}">
+    <a th:href="@{groups/{id}(id=${gr.getId()})}" th:text="${gr.toString()}"/>
+</div>
+<a href="http://localhost:8080/groups/new">Создать новую группу</a>
+<br>
+<a href="http://localhost:8080/home">Домой</a>
+</body>
+</html>

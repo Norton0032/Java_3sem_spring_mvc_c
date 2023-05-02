@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<body>
+<p th:text="${StudentsName}"/>
+<div th:each="student : ${Studens}">
+    <a th:href="@{students/{id}(id=${student.getId()})}" th:text="${student.toString()}"/>
+</div>
+<a href="http://localhost:8080/students/new">Создать нового студента</a>
+<br>
+<a href="http://localhost:8080/home">Домой</a>
+</body>
+</html>

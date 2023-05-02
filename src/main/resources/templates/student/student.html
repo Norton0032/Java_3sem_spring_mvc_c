@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Students</title>
+</head>
+<body>
+<p th:text="${Studen}"/>
+<br>
+<a th:href="@{/students/{id}/edit(id=${StudenIndex})}">Изменить</a>
+<br>
+<form th:method="DELETE" th:action="@{/students/{id}(id=${StudenIndex})}">
+  <input type="submit" value="Удалить"/>
+</form>
+<br>
+<a href="http://localhost:8080/students">Назад</a>
+</body>
+</html>
