@@ -1,6 +1,7 @@
 package com.example.java_3sem_spring_mvc.conrtoller;
 
 import com.example.java_3sem_spring_mvc.dao.StudentDAO;
+import com.example.java_3sem_spring_mvc.model.Group;
 import com.example.java_3sem_spring_mvc.model.Student;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +45,6 @@ public class StudentController {
     }
     @PostMapping
     public void createStuden(@RequestBody Student studen) {
-
         studentDAO.createStudent(studen);
     }
     @PostMapping("/new")

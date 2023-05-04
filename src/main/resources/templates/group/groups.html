@@ -8,6 +8,7 @@
 <p th:text="${GroupsName}"/>
 <div th:each="gr : ${Groups}">
     <a th:href="@{groups/{id}(id=${gr.getId()})}" th:text="${gr.toString()}"/>
+    <hr>
 </div>
 <a href="http://localhost:8080/groups/new">Создать новую группу</a>
 <br>

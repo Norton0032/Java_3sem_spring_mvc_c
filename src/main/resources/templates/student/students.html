@@ -8,6 +8,7 @@
 <p th:text="${StudentsName}"/>
 <div th:each="student : ${Studens}">
     <a th:href="@{students/{id}(id=${student.getId()})}" th:text="${student.toString()}"/>
+    <hr>
 </div>
 <a href="http://localhost:8080/students/new">Создать нового студента</a>
 <br>

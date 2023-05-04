@@ -18,6 +18,9 @@
     <input type="text" th:field="*{middleName}" id="middleName"/>
     <div style="color:red" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"></div>
     <br>
+    <label for="group">Введите ID Группы: </label>
+    <input type="text" th:field="*{group.id}" id="group"/>
+    <br>
     <input type="submit" value="Создать"/>
 </form>
 </body>

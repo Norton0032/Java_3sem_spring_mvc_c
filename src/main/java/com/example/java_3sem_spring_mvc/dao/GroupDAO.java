@@ -25,7 +25,7 @@ public class GroupDAO {
     }
 
     public List<Group> getGroupList() {
-        return session.createQuery("FROM Group",
+        return sessionFactory.openSession().createQuery("FROM Group",
                 Group.class).getResultList();
 
     }
@@ -44,7 +44,7 @@ public class GroupDAO {
     }
 
     public String getGroup(int index){
-        return session.get(Group.class, index).toString();
+        return sessionFactory.openSession().get(Group.class, index).toString();
     }
     @Transactional
     public void updateGroup(int index, Group group){

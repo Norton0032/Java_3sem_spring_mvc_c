@@ -28,12 +28,20 @@ public class Student {
     @NotEmpty(message = "Поле не должно быть пустым")
     @Column(name = "middleName")
     private String middleName;
+
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private Group group;
+
     @Override
     public String toString() {
         return "Student{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", middleName='" + middleName + '\'' +
+                ", groupName=" + group.getGroupName() +
+                ", groupID=" + group.getId() +
                 '}';
     }
 }
