@@ -4,6 +4,11 @@ import com.example.java_3sem_spring_mvc.model.Group;
 import com.example.java_3sem_spring_mvc.model.Student;
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.Entity;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Predicate;
+import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -31,6 +36,38 @@ public class StudentDAO {
                 Student.class).getResultList();
 
     }
+    public List<Student> filterStudents(Long id, String firstName, String lastName, String middleName, Long groupId) {
+        CriteriaBuilder cb = session.getCriteriaBuilder();
+        CriteriaQuery<Student> cq = cb.createQuery(Student.class);
+        Root<Student> root = cq.from(Student.class);
+
+        List<Predicate> predicates = new ArrayList<>();
+
+        if (id != null) {
+            predicates.add(cb.equal(root.get("id"), id));
+        }
+
+        if (firstName != null && !firstName.isEmpty()) {
+            predicates.add(cb.like(root.get("firstName"), "%" + firstName + "%"));
+        }
+
+        if (lastName != null && !lastName.isEmpty()) {
+            predicates.add(cb.like(root.get("lastName"), "%" + lastName + "%"));
+        }
+        if (middleName != null && !middleName.isEmpty()) {
+            predicates.add(cb.like(root.get("middleName"), "%" + middleName + "%"));
+        }
+
+        if (groupId != null) {
+            predicates.add(cb.equal(root.get("groupId"), groupId));
+        }
+
+        cq.where(predicates.toArray(new Predicate[0]));
+
+        TypedQuery<Student> query = session.createQuery(cq);
+
+        return query.getResultList();
+    }
     @Transactional
     public void createStudent(Student student) {
         Transaction transaction = session.beginTransaction();
@@ -55,4 +92,5 @@ public class StudentDAO {
         tx1.commit();
         session.close();
     }
+
 }

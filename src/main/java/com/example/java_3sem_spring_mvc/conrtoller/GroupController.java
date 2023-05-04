@@ -17,10 +17,13 @@ public class GroupController {
     @Autowired
     private GroupDAO groupDAO;
     @GetMapping
-    public String getGroupList_with_paramName(@RequestParam(value = "name", required = false) String i, Model model) {
+    public String getGroupList_with_paramName(@RequestParam(value = "name", required = false) String i,
+                                              @RequestParam(required = false) Long id,
+                                              @RequestParam(required = false) String groupName,
+                                              Model model) {
         //Ожидаем параметра на get-запрос, required=false означает, что он необязателен
         model.addAttribute("GroupsName", i);
-        model.addAttribute("Groups", groupDAO.getGroupList());
+        model.addAttribute("Groups", groupDAO.filterGroups(id, groupName));
         return "group/groups";
     }
     @GetMapping("/{index}")

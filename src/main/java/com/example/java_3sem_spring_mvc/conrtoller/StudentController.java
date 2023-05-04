@@ -18,11 +18,23 @@ public class StudentController {
     @Autowired
     private StudentDAO studentDAO;
     @GetMapping
-    public String getStudenList_with_paramName(@RequestParam(value = "name", required = false) String i, Model model) {
+    public String getStudenList_with_paramName(@RequestParam(value = "name", required = false) String i,
+                                               @RequestParam(required = false) Long id,
+                                               @RequestParam(required = false) String firstName,
+                                               @RequestParam(required = false) String lastName,
+                                               @RequestParam(required = false) String middleName,
+                                               @RequestParam(required = false) Long groupId,
+                                               Model model) {
         //Ожидаем параметра на get-запрос, required=false означает, что он необязателен
         model.addAttribute("StudentsName", i);
-        model.addAttribute("Studens", studentDAO.getStudentList());
-        System.out.println(studentDAO.getStudentList());
+        model.addAttribute("Studens", studentDAO.filterStudents(id, firstName, lastName, middleName, groupId));
+        Student student = null;
+
+        if (groupId != null) {
+            student = new Student();
+            student.setId(groupId);
+        }
+
         return "student/students";
     }
     @GetMapping("/{index}")
