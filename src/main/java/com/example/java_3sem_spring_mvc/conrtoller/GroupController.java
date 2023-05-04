@@ -1,9 +1,8 @@
 package com.example.java_3sem_spring_mvc.conrtoller;
 
 
-import com.example.java_3sem_spring_mvc.dao.GroupDAO;
+import com.example.java_3sem_spring_mvc.services.GroupService;
 import com.example.java_3sem_spring_mvc.model.Group;
-import com.example.java_3sem_spring_mvc.model.Student;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/groups")
 public class GroupController {
     @Autowired
-    private GroupDAO groupDAO;
+    private GroupService groupService;
     @GetMapping
     public String getGroupList_with_paramName(@RequestParam(value = "name", required = false) String i,
                                               @RequestParam(required = false) Long id,
@@ -23,12 +22,12 @@ public class GroupController {
                                               Model model) {
         //Ожидаем параметра на get-запрос, required=false означает, что он необязателен
         model.addAttribute("GroupsName", i);
-        model.addAttribute("Groups", groupDAO.filterGroups(id, groupName));
+        model.addAttribute("Groups", groupService.filterGroups(id, groupName));
         return "group/groups";
     }
     @GetMapping("/{index}")
-    public String getGroup(@PathVariable int index, Model model){
-        model.addAttribute("Group", groupDAO.getGroup(index));
+    public String getGroup(@PathVariable Long index, Model model){
+        model.addAttribute("Group", groupService.getGroup(index));
         model.addAttribute("GroupIndex", index);
         return "group/group";
     }
@@ -45,7 +44,7 @@ public class GroupController {
     }
     @PostMapping
     public void createGroup(@RequestBody Group group) {
-        groupDAO.createGroup(group);
+        groupService.createGroup(group);
     }
     @PostMapping("/new")
     public String createGroup_with_get(@ModelAttribute("newGroup") @Valid Group group, BindingResult bindingResult) {
@@ -53,7 +52,7 @@ public class GroupController {
             return "group/newGroup";
         }
 
-        groupDAO.createGroup(group);
+        groupService.createGroup(group);
         return "redirect:/groups";
     }
     @PatchMapping("/{index}")
@@ -61,12 +60,12 @@ public class GroupController {
         if (bindingResult.hasErrors()){
             return "group/editGroup";
         }
-        groupDAO.updateGroup(index, group);
+        groupService.updateGroup(index, group);
         return "redirect:/groups";
     }
     @DeleteMapping("/{index}")
     public String deleteGroup(@PathVariable Long index){
-        groupDAO.removeGroup(index);
+        groupService.removeGroup(index);
         return "redirect:/groups";
     }
 }

@@ -1,7 +1,7 @@
 package com.example.java_3sem_spring_mvc.conrtoller;
 
-import com.example.java_3sem_spring_mvc.dao.StudentDAO;
 import com.example.java_3sem_spring_mvc.model.Group;
+import com.example.java_3sem_spring_mvc.services.StudentService;
 import com.example.java_3sem_spring_mvc.model.Student;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class StudentController {
 
     @Autowired
-    private StudentDAO studentDAO;
+    private StudentService studentService;
     @GetMapping
     public String getStudenList_with_paramName(@RequestParam(value = "name", required = false) String i,
                                                @RequestParam(required = false) Long id,
@@ -26,20 +26,20 @@ public class StudentController {
                                                @RequestParam(required = false) Long groupId,
                                                Model model) {
         //Ожидаем параметра на get-запрос, required=false означает, что он необязателен
-        model.addAttribute("StudentsName", i);
-        model.addAttribute("Studens", studentDAO.filterStudents(id, firstName, lastName, middleName, groupId));
-        Student student = null;
+        Group group = null;
 
         if (groupId != null) {
-            student = new Student();
-            student.setId(groupId);
+            group = new Group();
+            group.setId(groupId);
         }
+        model.addAttribute("StudentsName", i);
+        model.addAttribute("Studens", studentService.filterStudents(id, firstName, lastName, middleName, group));
 
         return "student/students";
     }
     @GetMapping("/{index}")
-    public String getStuden(@PathVariable int index, Model model){
-        model.addAttribute("Studen", studentDAO.getStudent(index).toString());
+    public String getStuden(@PathVariable Long index, Model model){
+        model.addAttribute("Studen", studentService.getStudent(index).toString());
         model.addAttribute("StudenIndex", index);
         return "student/student";
     }
@@ -57,14 +57,14 @@ public class StudentController {
     }
     @PostMapping
     public void createStuden(@RequestBody Student studen) {
-        studentDAO.createStudent(studen);
+        studentService.createStudent(studen);
     }
     @PostMapping("/new")
     public String createStuden_with_get(@ModelAttribute("newStudent") @Valid Student student, BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             return "student/newStudent";
         }
-        studentDAO.createStudent(student);
+        studentService.createStudent(student);
         return "redirect:/students";
 }
     @PatchMapping("/{index}")
@@ -72,12 +72,12 @@ public class StudentController {
         if (bindingResult.hasErrors()){
             return "student/editStudent";
         }
-        studentDAO.updateStudent(index, student);
+        studentService.updateStudent(index, student);
         return "redirect:/students";
     }
     @DeleteMapping("/{index}")
     public String deleteStuden(@PathVariable Long index){
-        studentDAO.removeStudent(index);
+        studentService.removeStudent(index);
         return "redirect:/students";
     }
 }
