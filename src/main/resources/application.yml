@@ -4,4 +4,17 @@ spring:
     username: "postgres"
     password: "post"
 
+  mail:
+    host: smtp.yandex.ru
+    port: 465
+    username: "Max32rus37@yandex.ru"
+    password: "cwcuvollyrpivyvt"
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+          auth: true
+          from: "Max32rus37@yandex.ru"
+
 

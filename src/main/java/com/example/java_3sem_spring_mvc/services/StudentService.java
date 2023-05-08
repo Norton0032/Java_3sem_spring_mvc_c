@@ -5,7 +5,9 @@ import com.example.java_3sem_spring_mvc.model.Student;
 import com.example.java_3sem_spring_mvc.repositories.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,7 +16,11 @@ import java.util.List;
 @Slf4j
 public class StudentService {
     private final StudentRepository studentRepository;
+    private final EmailService emailService;
+    @Value("Max32rus37@yandex.ru")
+    private String EMAIL;
 
+    @Transactional
     public List<Student> filterStudents(Long id, String firstName, String lastName, String middleName, Group group) {
         if (id == null && firstName == null && lastName == null && group == null && middleName == null) {
             log.info("Студенты выведены без фильтра");
@@ -25,12 +31,15 @@ public class StudentService {
         }
     }
 
+    @Transactional
     public void createStudent(Student student) {
 
-        log.info("Студент создан");
         studentRepository.save(student);
+        log.info("Студент создан");
+        emailService.sendEmail(EMAIL, "Студент создан", student.toString());
     }
 
+    @Transactional
     public void removeStudent(Long index) {
 
         log.info("Студент удалён по id: " + index);

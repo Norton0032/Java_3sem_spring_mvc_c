@@ -4,7 +4,9 @@ import com.example.java_3sem_spring_mvc.model.Group;
 import com.example.java_3sem_spring_mvc.repositories.GroupRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -13,8 +15,12 @@ import java.util.List;
 @Slf4j
 public class GroupService {
     private final GroupRepository groupRepository;
+    private final EmailService emailService;
+    @Value("Max32rus37@yandex.ru")
+    private String EMAIL;
 
 
+    @Transactional
     public List<Group> filterGroups(Long id, String name) {
         if (id == null && name == null) {
             log.info("Группы выведены без фильтра");
@@ -25,11 +31,14 @@ public class GroupService {
         }
     }
 
+    @Transactional
     public void createGroup(Group group) {
-        log.info("Группа создана");
         groupRepository.save(group);
+        log.info("Группа создана");
+        emailService.sendEmail(EMAIL, "Группа создана", group.toString());
     }
 
+    @Transactional
     public void removeGroup(Long index) {
         log.info("Группа удалена id=: " + index);
         groupRepository.deleteById(index);
