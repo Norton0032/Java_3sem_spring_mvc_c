@@ -76,3 +76,51 @@
 95287 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 95288 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 95289 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+437  [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+459  [main] INFO  c.e.j.Java3semSpringMvcApplication - Starting Java3semSpringMvcApplication using Java 19 with PID 20376 (C:\Users\max32\IdeaProjects\Java_3sem_spring_mvc\build\classes\java\main started by max32 in C:\Users\max32\IdeaProjects\Java_3sem_spring_mvc)
+460  [main] INFO  c.e.j.Java3semSpringMvcApplication - No active profile set, falling back to 1 default profile: "default"
+848  [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+874  [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+1404 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+1409 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+1409 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+1409 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+1460 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+1460 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 974 ms
+1585 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+1697 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@781c2497
+1698 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+1720 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+1743 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+1908 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2372 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2377 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2628 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2887 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2920 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2930 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2938 [main] INFO  c.e.j.Java3semSpringMvcApplication - Started Java3semSpringMvcApplication in 2.706 seconds (process running for 4.542)
+10916 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+10917 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+10918 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+21925 [http-nio-8080-exec-6] INFO  c.e.j.services.StudentService - Студенты выведены без фильтра
+21999 [http-nio-8080-exec-6] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.filterStudents(..) выполняется: 73 ms
+41809 [http-nio-8080-exec-9] INFO  c.e.j.services.StudentService - Студент создан
+41846 [http-nio-8080-exec-9] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.createStudent(..) выполняется: 37 ms
+41860 [http-nio-8080-exec-3] INFO  c.e.j.services.StudentService - Студенты выведены без фильтра
+41865 [http-nio-8080-exec-3] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.filterStudents(..) выполняется: 5 ms
+56607 [http-nio-8080-exec-1] INFO  c.e.j.services.StudentService - Зайшли на страничку студента по id=: 19
+56612 [http-nio-8080-exec-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.getStudent(..) выполняется: 5 ms
+57540 [http-nio-8080-exec-6] INFO  c.e.j.services.StudentService - Студент удалён по id: 19
+57549 [http-nio-8080-exec-6] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.removeStudent(..) выполняется: 9 ms
+57556 [http-nio-8080-exec-7] INFO  c.e.j.services.StudentService - Студенты выведены без фильтра
+57558 [http-nio-8080-exec-7] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.filterStudents(..) выполняется: 2 ms
+112190 [http-nio-8080-exec-9] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+112193 [http-nio-8080-exec-9] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 3 ms
+120037 [http-nio-8080-exec-3] INFO  c.e.j.services.GroupService - Зайшли в группу по id=: 7
+120040 [http-nio-8080-exec-3] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getGroup(..) выполняется: 3 ms
+123912 [http-nio-8080-exec-2] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+123914 [http-nio-8080-exec-2] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 2 ms
+135388 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+135389 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+135391 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
