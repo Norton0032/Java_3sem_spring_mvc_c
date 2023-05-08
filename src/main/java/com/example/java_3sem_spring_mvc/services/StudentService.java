@@ -20,7 +20,7 @@ public class StudentService {
     @Value("Max32rus37@yandex.ru")
     private String EMAIL;
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Student> filterStudents(Long id, String firstName, String lastName, String middleName, Group group) {
         if (id == null && firstName == null && lastName == null && group == null && middleName == null) {
             log.info("Студенты выведены без фильтра");
@@ -30,13 +30,17 @@ public class StudentService {
             return studentRepository.findByIdOrFirstNameContainingOrLastNameContainingOrMiddleNameContainingOrGroup(id, firstName, lastName, middleName, group);
         }
     }
+    @Transactional(readOnly = true)
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
 
     @Transactional
     public void createStudent(Student student) {
 
         studentRepository.save(student);
         log.info("Студент создан");
-        emailService.sendEmail(EMAIL, "Студент создан", student.toString());
+        //emailService.sendEmail(EMAIL, "Студент создан", student.toString());
     }
 
     @Transactional
@@ -46,6 +50,7 @@ public class StudentService {
         studentRepository.deleteById(index);
     }
 
+    @Transactional(readOnly = true)
     public String getStudent(Long index){
         log.info("Зайшли на страничку студента по id=: " + index);
         return studentRepository.findById(index).toString();

@@ -20,7 +20,7 @@ public class GroupService {
     private String EMAIL;
 
 
-    @Transactional
+    @Transactional(readOnly = true)
     public List<Group> filterGroups(Long id, String name) {
         if (id == null && name == null) {
             log.info("Группы выведены без фильтра");
@@ -30,12 +30,16 @@ public class GroupService {
             return groupRepository.findByIdOrGroupNameContaining(id, name);
         }
     }
+    @Transactional(readOnly = true)
+    public List<Group> getAllGroups() {
+        return groupRepository.findAll();
+    }
 
     @Transactional
     public void createGroup(Group group) {
         groupRepository.save(group);
         log.info("Группа создана");
-        emailService.sendEmail(EMAIL, "Группа создана", group.toString());
+        //emailService.sendEmail(EMAIL, "Группа создана", group.toString());
     }
 
     @Transactional
@@ -44,6 +48,7 @@ public class GroupService {
         groupRepository.deleteById(index);
     }
 
+    @Transactional(readOnly = true)
     public String getGroup(Long index){
         log.info("Зайшли в группу по id=: " + index);
         return groupRepository.findById(index).toString();

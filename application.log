@@ -351,3 +351,174 @@ jakarta.mail.AuthenticationFailedException: 535 5.7.8 Error: authentication fail
 292287 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 292293 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 292295 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+368  [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+392  [main] INFO  c.e.j.Java3semSpringMvcApplication - Starting Java3semSpringMvcApplication using Java 19 with PID 20376 (C:\Users\max32\IdeaProjects\Java_3sem_spring_mvc\build\classes\java\main started by max32 in C:\Users\max32\IdeaProjects\Java_3sem_spring_mvc)
+393  [main] INFO  c.e.j.Java3semSpringMvcApplication - No active profile set, falling back to 1 default profile: "default"
+733  [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+760  [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+1238 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+1243 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+1243 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+1243 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+1303 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+1304 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 883 ms
+1431 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+1532 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@42aa1324
+1533 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+1553 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+1576 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+1742 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2194 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2200 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2462 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2745 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2784 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2794 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2802 [main] INFO  c.e.j.Java3semSpringMvcApplication - Started Java3semSpringMvcApplication in 2.629 seconds (process running for 3.058)
+7044 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+7044 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+7045 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+7071 [http-nio-8080-exec-1] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+7131 [http-nio-8080-exec-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 60 ms
+9155 [http-nio-8080-exec-3] INFO  c.e.j.services.GroupService - Зайшли в группу по id=: 12
+9162 [http-nio-8080-exec-3] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getGroup(..) выполняется: 7 ms
+10469 [http-nio-8080-exec-6] INFO  c.e.j.services.GroupService - Группа удалена id=: 12
+10482 [http-nio-8080-exec-6] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.removeGroup(..) выполняется: 13 ms
+10566 [http-nio-8080-exec-7] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+10568 [http-nio-8080-exec-7] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 2 ms
+11391 [http-nio-8080-exec-8] INFO  c.e.j.services.GroupService - Зайшли в группу по id=: 11
+11394 [http-nio-8080-exec-8] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getGroup(..) выполняется: 3 ms
+12060 [http-nio-8080-exec-2] INFO  c.e.j.services.GroupService - Группа удалена id=: 11
+12063 [http-nio-8080-exec-2] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.removeGroup(..) выполняется: 3 ms
+12075 [http-nio-8080-exec-4] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+12079 [http-nio-8080-exec-4] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 3 ms
+13552 [http-nio-8080-exec-5] INFO  c.e.j.services.GroupService - Зайшли в группу по id=: 10
+13555 [http-nio-8080-exec-5] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getGroup(..) выполняется: 3 ms
+14149 [http-nio-8080-exec-9] INFO  c.e.j.services.GroupService - Группа удалена id=: 10
+14152 [http-nio-8080-exec-9] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.removeGroup(..) выполняется: 3 ms
+14171 [http-nio-8080-exec-10] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+14175 [http-nio-8080-exec-10] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 4 ms
+17118 [http-nio-8080-exec-3] INFO  c.e.j.services.GroupService - Группа создана
+17118 [http-nio-8080-exec-3] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.createGroup(..) выполняется: 25 ms
+17145 [http-nio-8080-exec-6] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+17151 [http-nio-8080-exec-6] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 6 ms
+31896 [http-nio-8080-exec-7] INFO  c.e.j.services.GroupService - Зайшли в группу по id=: 13
+31899 [http-nio-8080-exec-7] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getGroup(..) выполняется: 3 ms
+32607 [http-nio-8080-exec-8] INFO  c.e.j.services.GroupService - Группа удалена id=: 13
+32608 [http-nio-8080-exec-8] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.removeGroup(..) выполняется: 1 ms
+32627 [http-nio-8080-exec-2] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+32629 [http-nio-8080-exec-2] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 2 ms
+67535 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+67536 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+67538 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+364  [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+388  [main] INFO  c.e.j.Java3semSpringMvcApplication - Starting Java3semSpringMvcApplication using Java 19 with PID 6696 (C:\Users\max32\IdeaProjects\Java_3sem_spring_mvc\build\classes\java\main started by max32 in C:\Users\max32\IdeaProjects\Java_3sem_spring_mvc)
+388  [main] INFO  c.e.j.Java3semSpringMvcApplication - No active profile set, falling back to 1 default profile: "default"
+730  [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+757  [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+1256 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+1262 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+1262 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+1262 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+1322 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+1322 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 907 ms
+1447 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+1546 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@349f0ca4
+1546 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+1568 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+1591 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+1766 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2225 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2230 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2495 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2797 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2838 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2848 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2857 [main] INFO  c.e.j.Java3semSpringMvcApplication - Started Java3semSpringMvcApplication in 2.692 seconds (process running for 3.097)
+2963 [scheduling-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.getAllStudents() выполняется: 97 ms
+2966 [scheduling-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getAllGroups() выполняется: 2 ms
+2966 [scheduling-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод LoadDataService.clearAndLoadData() выполняется: 104 ms
+77852 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+77852 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+77853 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+79219 [http-nio-8080-exec-2] INFO  c.e.j.services.StudentService - Студенты выведены без фильтра
+79222 [http-nio-8080-exec-2] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.filterStudents(..) выполняется: 4 ms
+84376 [http-nio-8080-exec-7] INFO  c.e.j.services.StudentService - Студент создан
+84377 [http-nio-8080-exec-7] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.createStudent(..) выполняется: 47 ms
+84425 [http-nio-8080-exec-8] INFO  c.e.j.services.StudentService - Студенты выведены без фильтра
+84427 [http-nio-8080-exec-8] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.filterStudents(..) выполняется: 2 ms
+86265 [http-nio-8080-exec-3] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+86268 [http-nio-8080-exec-3] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 3 ms
+90809 [http-nio-8080-exec-10] INFO  c.e.j.services.GroupService - Группа создана
+90809 [http-nio-8080-exec-10] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.createGroup(..) выполняется: 5 ms
+90822 [http-nio-8080-exec-5] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+90824 [http-nio-8080-exec-5] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 2 ms
+91769 [http-nio-8080-exec-1] INFO  c.e.j.services.GroupService - Зайшли в группу по id=: 14
+91774 [http-nio-8080-exec-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getGroup(..) выполняется: 5 ms
+92418 [http-nio-8080-exec-2] INFO  c.e.j.services.GroupService - Группа удалена id=: 14
+92426 [http-nio-8080-exec-2] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.removeGroup(..) выполняется: 8 ms
+92454 [http-nio-8080-exec-4] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+92458 [http-nio-8080-exec-4] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 3 ms
+130847 [http-nio-8080-exec-8] INFO  c.e.j.services.StudentService - Студенты выведены без фильтра
+130850 [http-nio-8080-exec-8] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.filterStudents(..) выполняется: 3 ms
+193761 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+193762 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+193764 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+380  [background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.0.Final
+405  [main] INFO  c.e.j.Java3semSpringMvcApplication - Starting Java3semSpringMvcApplication using Java 19 with PID 16084 (C:\Users\max32\IdeaProjects\Java_3sem_spring_mvc\build\classes\java\main started by max32 in C:\Users\max32\IdeaProjects\Java_3sem_spring_mvc)
+406  [main] INFO  c.e.j.Java3semSpringMvcApplication - No active profile set, falling back to 1 default profile: "default"
+762  [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+791  [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 2 JPA repository interfaces.
+1301 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+1307 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+1307 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+1307 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.8]
+1359 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+1359 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 925 ms
+1492 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+1593 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e94669c
+1594 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+1615 [main] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+1637 [main] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.1.7.Final
+1805 [main] INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2272 [main] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2278 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2546 [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2830 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator'
+2873 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2883 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2891 [main] INFO  c.e.j.Java3semSpringMvcApplication - Started Java3semSpringMvcApplication in 2.714 seconds (process running for 3.141)
+2960 [scheduling-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.getAllStudents() выполняется: 61 ms
+2962 [scheduling-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getAllGroups() выполняется: 1 ms
+2963 [scheduling-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод LoadDataService.clearAndLoadData() выполняется: 66 ms
+14902 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+14902 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+14903 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+14927 [http-nio-8080-exec-1] INFO  c.e.j.services.StudentService - Студенты выведены без фильтра
+14930 [http-nio-8080-exec-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.filterStudents(..) выполняется: 4 ms
+15905 [http-nio-8080-exec-4] INFO  c.e.j.services.StudentService - Зайшли на страничку студента по id=: 20
+15910 [http-nio-8080-exec-4] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.getStudent(..) выполняется: 5 ms
+16800 [http-nio-8080-exec-8] INFO  c.e.j.services.StudentService - Студент удалён по id: 20
+16808 [http-nio-8080-exec-8] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.removeStudent(..) выполняется: 8 ms
+16833 [http-nio-8080-exec-7] INFO  c.e.j.services.StudentService - Студенты выведены без фильтра
+16835 [http-nio-8080-exec-7] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.filterStudents(..) выполняется: 2 ms
+17682 [http-nio-8080-exec-6] INFO  c.e.j.services.StudentService - Зайшли на страничку студента по id=: 12
+17684 [http-nio-8080-exec-6] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.getStudent(..) выполняется: 2 ms
+18412 [http-nio-8080-exec-3] INFO  c.e.j.services.StudentService - Студент удалён по id: 12
+18414 [http-nio-8080-exec-3] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.removeStudent(..) выполняется: 3 ms
+18432 [http-nio-8080-exec-2] INFO  c.e.j.services.StudentService - Студенты выведены без фильтра
+18434 [http-nio-8080-exec-2] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.filterStudents(..) выполняется: 2 ms
+20616 [http-nio-8080-exec-10] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+20619 [http-nio-8080-exec-10] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 3 ms
+21761 [http-nio-8080-exec-5] INFO  c.e.j.services.GroupService - Зайшли в группу по id=: 7
+21764 [http-nio-8080-exec-5] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getGroup(..) выполняется: 4 ms
+22327 [http-nio-8080-exec-1] INFO  c.e.j.services.GroupService - Группа удалена id=: 7
+22329 [http-nio-8080-exec-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.removeGroup(..) выполняется: 2 ms
+22343 [http-nio-8080-exec-4] INFO  c.e.j.services.GroupService - Группы выведены без фильтра
+22348 [http-nio-8080-exec-4] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.filterGroups(..) выполняется: 5 ms
+122984 [scheduling-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод StudentService.getAllStudents() выполняется: 3 ms
+122987 [scheduling-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод GroupService.getAllGroups() выполняется: 2 ms
+122987 [scheduling-1] INFO  c.e.j.a.ExecutionTimeLoggingAspect - Метод LoadDataService.clearAndLoadData() выполняется: 8 ms
+225739 [SpringApplicationShutdownHook] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+225741 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+225742 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
