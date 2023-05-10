@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>Students</title>
+  <title>ЕГЭ на 100</title>
+  <link rel="stylesheet" type="text/css" href="/css/styleForOne.css" />
 </head>
 <body>
-<p th:text="${Studen}"/>
-<br>
-<a th:href="@{/students/{id}/edit(id=${StudenIndex})}">Изменить</a>
-<br>
-<form th:method="DELETE" th:action="@{/students/{id}(id=${StudenIndex})}">
-  <input type="submit" value="Удалить"/>
-</form>
-<br>
-<a href="http://localhost:8080/students">Назад</a>
+<header>
+  <h1>Информация об ученике</h1>
+</header>
+<nav>
+  <a href="http://localhost:8080/home">Главная</a>
+</nav>
+<div class="container">
+  <div class="info">
+    <label>Id:</label>
+    <p th:text="${Studen.getId()}">Id</p>
+    <label>Имя:</label>
+    <p th:text="${Studen.getFirstName()}">Имя</p>
+    <label>Фамилия:</label>
+    <p th:text="${Studen.getLastName()}">Фамилия</p>
+    <label>Отчество:</label>
+    <p th:text="${Studen.getMiddleName()}">Отчество</p>
+    <label>Почта:</label>
+    <p th:text="${Studen.getEmail()}">Почта</p>
+    <label>Группа:</label>
+    <p th:text="${Studen.getGroup().getGroupName()}">Группа</p>
+    <label>ID Группы:</label>
+    <p th:text="${Studen.getGroup().getId()}">Id Группы</p>
+  </div>
+  <a href="http://localhost:8080/students" class="btn">Назад</a>
+  <form th:method="DELETE" th:action="@{/students/{id}(id=${StudenIndex})}">
+    <input class="btn btn-danger" type="submit" value="Удалить"/>
+  </form>
+  <a th:href="@{/students/{id}/edit(id=${StudenIndex})}" class="btn">Изменить</a>
+</div>
 </body>
 </html>

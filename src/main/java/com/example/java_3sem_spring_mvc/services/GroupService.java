@@ -9,15 +9,14 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class GroupService {
     private final GroupRepository groupRepository;
-    private final EmailService emailService;
-    @Value("Max32rus37@yandex.ru")
-    private String EMAIL;
+
 
 
     @Transactional
@@ -35,7 +34,6 @@ public class GroupService {
     public void createGroup(Group group) {
         groupRepository.save(group);
         log.info("Группа создана");
-        emailService.sendEmail(EMAIL, "Группа создана", group.toString());
     }
 
     @Transactional
@@ -44,12 +42,14 @@ public class GroupService {
         groupRepository.deleteById(index);
     }
 
-    public String getGroup(Long index){
+    public Optional<Group> getGroup(Long index){
         log.info("Зайшли в группу по id=: " + index);
-        return groupRepository.findById(index).toString();
+        return groupRepository.findById(index);
     }
 
-    public void updateGroup(int index, Group group){
-
+    public void updateGroup(Long index, Group group){
+        Group group_for_update = groupRepository.findById(index).get();
+        group_for_update.setGroupName(group.getGroupName());
+        groupRepository.save(group_for_update);
     }
 }

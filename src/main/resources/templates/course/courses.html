@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>ЕГЭ на 100</title>
+  <link rel="stylesheet" type="text/css" href="/css/styleForMany.css" />
+</head>
+<body>
+<header>
+  <h1>Список Курсов</h1>
+</header>
+<nav>
+  <a href="http://localhost:8080/home">Главная</a>
+  <a href="http://localhost:8080/courses/new">Добавить курс</a>
+</nav>
+<div class="container">
+  <h2>Список курсов</h2>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Название курса</th>
+      <th>Количество групп</th>
+      <th>Количество учеников</th>
+      <th>Цена</th>
+      <th>Подробнее</th>
+    </tr>
+    <tr th:each="cr : ${Courses}">
+      <th th:text="${cr.getId()}">Id</th>
+      <th th:text="${cr.getCourseName()}">Имя</th>
+      <th th:text="${cr.getLenGr()}">Количество групп</th>
+      <th th:text="${cr.getLenSt()}">Количество учеников</th>
+      <th th:text="${cr.getPriceStr()}">Цена</th>
+      <th><a th:href="@{courses/{id}(id=${cr.getId()})}">Подробнее</a></th>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,9 +18,6 @@ import java.util.List;
 public class StudentService {
     private final StudentRepository studentRepository;
     private final EmailService emailService;
-    @Value("Max32rus37@yandex.ru")
-    private String EMAIL;
-
     @Transactional
     public List<Student> filterStudents(Long id, String firstName, String lastName, String middleName, Group group) {
         if (id == null && firstName == null && lastName == null && group == null && middleName == null) {
@@ -27,18 +25,19 @@ public class StudentService {
             return studentRepository.findAll();
         } else {
             log.info("Студенты выведены с фильтром id=" + id + " name=" + firstName+" "+ lastName+" "+middleName + " groups=" + group);
-            return studentRepository.findByIdOrFirstNameContainingOrLastNameContainingOrMiddleNameContainingOrGroup(id, firstName, lastName, middleName, group);
+            return studentRepository.findByIdOrFirstNameContainingOrLastNameContainingOrMiddleNameContainingOrGroup(id,
+                    firstName, lastName, middleName, group);
         }
     }
-
     @Transactional
-    public void createStudent(Student student) {
-
+    public void createStudent(Student student, String group, String course) {
         studentRepository.save(student);
         log.info("Студент создан");
-        emailService.sendEmail(EMAIL, "Студент создан", student.toString());
+        if (student.getEmail_send() != null) {
+            emailService.sendEmail(student.getEmail(), "Вы зачислены на курс по подготовки к ЕГЭ",
+                    "Вас зачислили на курс "+course+ ", ваша группы "+ group);
+        }
     }
-
     @Transactional
     public void removeStudent(Long index) {
 
@@ -46,14 +45,19 @@ public class StudentService {
         studentRepository.deleteById(index);
     }
 
-    public String getStudent(Long index){
+    public Optional<Student> getStudent(Long index){
         log.info("Зайшли на страничку студента по id=: " + index);
-        return studentRepository.findById(index).toString();
+        return studentRepository.findById(index);
 
     }
 
-    public void updateStudent(int index, Student student){
-
+    public void updateStudent(Long index, Student student){
+        Student student_for_update = studentRepository.findById(index).get();
+        student_for_update.setFirstName(student.getFirstName());
+        student_for_update.setLastName(student.getLastName());
+        student_for_update.setMiddleName(student.getMiddleName());
+        student_for_update.setEmail(student.getEmail());
+        studentRepository.save(student_for_update);
     }
 
 }

@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset="UTF-8">
-  <title>Добавление новой группы</title>
+  <title>ЕГЭ на 100</title>
+  <link rel="stylesheet" type="text/css" href="/css/styleForNew.css" />
 </head>
 <body>
-<form th:method="POST" th:action="@{/groups/new}" th:object="${newGroup}">
-  <label for="groupName">Введите Имя группы: </label>
-  <input type="text" th:field="*{groupName}" id="groupName"/>
-  <div style="color:red" th:if="${#fields.hasErrors('groupName')}" th:errors="*{groupName}"></div>
-  <br>
-  <input type="submit" value="Создать"/>
-</form>
-
+<header>
+  <h1>Добавить группы</h1>
+</header>
+<nav>
+  <a href="http://localhost:8080/home">Главная</a>
+</nav>
+<div class="container">
+  <form th:method="POST" th:action="@{/groups/new}" th:object="${newGroup}">
+    <label for="groupName">Имя группы:</label>
+    <input type="text" th:field="*{groupName}" id="groupName">
+    <div style="color:red" th:if="${#fields.hasErrors('groupName')}" th:errors="*{groupName}"></div>
+    <label for="course">ID курса:</label>
+    <input type="text" th:field="*{course.id}" id="course">
+    <input type="submit" value="Добавить" class="btn">
+    <a href="http://localhost:8080/groups" class="btn">Назад</a>
+  </form>
+</div>
 </body>
 </html>

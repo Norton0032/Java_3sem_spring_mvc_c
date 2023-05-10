@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Добавление нового студента</title>
+    <title>ЕГЭ на 100</title>
+    <link rel="stylesheet" type="text/css" href="/css/styleForNew.css" />
 </head>
 <body>
-<form th:method="POST" th:action="@{/students/new}" th:object="${newStudent}">
-    <label for="firstName">Введите Имя: </label>
-    <input type="text" th:field="*{firstName}" id="firstName"/>
-    <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
-    <br>
-    <label for="lastName">Введите фамилию: </label>
-    <input type="text" th:field="*{lastName}" id="lastName"/>
-    <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
-    <br>
-    <label for="middleName">Введите Отчество: </label>
-    <input type="text" th:field="*{middleName}" id="middleName"/>
-    <div style="color:red" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"></div>
-    <br>
-    <label for="group">Введите ID Группы: </label>
-    <input type="text" th:field="*{group.id}" id="group"/>
-    <br>
-    <input type="submit" value="Создать"/>
-</form>
+<header>
+    <h1>Добавить ученика</h1>
+</header>
+<nav>
+    <a href="http://localhost:8080/home">Главная</a>
+</nav>
+<div class="container">
+    <form th:method="POST" th:action="@{/students/new}" th:object="${newStudent}">
+        <label for="firstName">Имя:</label>
+        <input type="text" th:field="*{firstName}" id="firstName">
+        <div style="color:red" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+        <label for="lastName">Фамилия:</label>
+        <input type="text" th:field="*{lastName}" id="lastName">
+        <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+        <label for="middleName">Отчество:</label>
+        <input type="text" th:field="*{middleName}" id="middleName">
+        <div style="color:red" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}"></div>
+
+        <label for="email">Почта:</label>
+        <input type="text" th:field="*{email}" id="email">
+        <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+
+        <label for="group">ID Группы:</label>
+        <input type="text" th:field="*{group.id}" id="group">
+        <label style="flex-basis: 75%;" for="email_send">Отправить письмо по эллектронной почте:</label>
+        <input style="flex-basis: 23%; display: inline-block;" type="checkbox" th:field="*{email_send}" th:value="q" id="email_send">
+        <input type="submit" value="Добавить" class="btn">
+        <a href="http://localhost:8080/students" class="btn">Назад</a>
+    </form>
+</div>
 </body>
 </html>

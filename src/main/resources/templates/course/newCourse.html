@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>ЕГЭ на 100</title>
+  <link rel="stylesheet" type="text/css" href="/css/styleForNew.css" />
+</head>
+<body>
+<header>
+  <h1>Добавить курс</h1>
+</header>
+<nav>
+  <a href="http://localhost:8080/home">Главная</a>
+</nav>
+<div class="container">
+  <form th:method="POST" th:action="@{/courses/new}" th:object="${newCourse}">
+    <label for="courseName">Название курса:</label>
+    <input type="text" th:field="*{courseName}" id="courseName">
+    <div style="color:red" th:if="${#fields.hasErrors('courseName')}" th:errors="*{courseName}"></div>
+    <label for="price">Цена:</label>
+    <input type="text" th:field="*{price}" id="price">
+    <input type="submit" value="Добавить" class="btn">
+    <a href="http://localhost:8080/courses" class="btn">Назад</a>
+  </form>
+</div>
+</body>
+</html>
+
+

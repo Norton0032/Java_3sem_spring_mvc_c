@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Spring tasks</title>
+    <title>ЕГЭ на 100</title>
+    <link rel="stylesheet" type="text/css" href="/css/styleHome.css" />
 </head>
 <body>
-  <h1>Егоркин Евгений</h1>
-  <p>Группа: ИКБО-01-21</p>
-  <p>Вариант: 16</p>
-  <a href="http://localhost:8080/students">Список учеников</a><br>
-  <a href="http://localhost:8080/groups">Список груп</a>
+<header>
+    <h1>ЕГЭ на 100</h1>
+</header>
+<nav>
+    <a href="http://localhost:8080/groups">Группы</a>
+    <a href="http://localhost:8080/students">Ученики</a>
+    <a href="http://localhost:8080/courses">Курсы</a>
+</nav>
+<div class="container">
+    <h2>Новые курсы</h2>
+    <div class="card" th:each="course : ${Courses}">
+        <h3 th:text="${course.getCourseName()}">Имя курса</h3>
+        <p th:text="${course.getPriceStr()}">Цена</p>
+        <a th:href="@{http://localhost:8080/courses/{id}(id=${course.getId()})}">Подробнее</a>
+    </div>
+
+</div>
 </body>
 </html>
+
+

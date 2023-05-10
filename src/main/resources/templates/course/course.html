@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>ЕГЭ на 100</title>
+  <link rel="stylesheet" type="text/css" href="/css/styleForOneGroup.css" />
+</head>
+<body>
+<header>
+  <h1>Информация о курсе</h1>
+</header>
+<nav>
+  <a href="http://localhost:8080/home">Главная</a>
+</nav>
+<div class="container">
+  <div class="info">
+    <label>Id:</label>
+    <p th:text="${CourseIndex}">Id</p>
+    <label>Название:</label>
+    <p th:text="${Course.getCourseName()}">Название</p>
+    <label>Количество групп:</label>
+    <p th:text="${Course.getLenGr()}">15</p>
+    <label>Количество учеников:</label>
+    <p th:text="${Course.getLenSt()}">15</p>
+    <label>Цена:</label>
+    <p th:text="${Course.getPriceStr()}">Цена</p>
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Название группы</th>
+      <th>Подробнее</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="gr : ${Course.getGroups()}">
+      <th th:text="${gr.getId()}">ID</th>
+      <th th:text="${gr.getGroupName()}">Название</th>
+      <th><a th:href="@{http://localhost:8080/groups/{id}(id=${gr.getId()})}">Подробнее</a></th>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <a href="http://localhost:8080/courses" class="btn">Назад</a>
+  <form th:method="DELETE" th:action="@{/courses/{id}(id=${CourseIndex})}">
+    <input type="submit" class="btn btn-danger" value="Удалить"/>
+  </form>
+  <a th:href="@{/courses/{id}/edit(id=${CourseIndex})}"class="btn">Изменить</a>
+</div>
+</body>
+</html>

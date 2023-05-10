@@ -16,16 +16,15 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "groups")
+@Table(name = "groups_cur")
 public class Group {
     @Id
-    @SequenceGenerator(name = "groups_seq", sequenceName = "groups_sequence", allocationSize = 1)
+    @SequenceGenerator(name = "groups_seq", sequenceName = "groups_cur_sequence", allocationSize = 1)
     @GeneratedValue(generator = "groups_seq", strategy = GenerationType.SEQUENCE)
     private Long id;
     @NotEmpty(message = "Поле не должно быть пустым")
     @Column(name = "groupName")
     private String groupName;
-
     public Group(String groupName) {
         this.groupName = groupName;
     }
@@ -33,14 +32,12 @@ public class Group {
     @JsonIgnore
     @OneToMany(mappedBy = "group")
     private List<Student> students;
-
-    @Override
-    public String toString() {
-        return "Group{" +
-                "id=" + id +
-                ", groupName='" + groupName + '\'' +
-                ", students=" + students+
-                '}';
+    public int getLenSt(){
+        return students.size();
     }
+
+    @ManyToOne
+    @JoinColumn(name = "course_id")
+    private Course course;
 }
 

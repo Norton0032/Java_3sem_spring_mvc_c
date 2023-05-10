@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Students</title>
+    <title>ЕГЭ на 100</title>
+    <link rel="stylesheet" type="text/css" href="/css/styleForMany.css" />
 </head>
 <body>
-<p th:text="${StudentsName}"/>
-<div th:each="student : ${Studens}">
-    <a th:href="@{students/{id}(id=${student.getId()})}" th:text="${student.toString()}"/>
-    <hr>
+<header>
+    <h1>Список учеников</h1>
+</header>
+<nav>
+    <a href="http://localhost:8080/home">Главная</a>
+    <a href="http://localhost:8080/students/new">Добавить ученика</a>
+</nav>
+<div class="container">
+    <h2>Список учеников</h2>
+    <table>
+        <tr>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Группа</th>
+            <th>Email</th>
+            <th>Курс</th>
+            <th>Подробнее</th>
+        </tr>
+        <tr th:each="student : ${Studens}">
+            <th th:text="${student.getFirstName()}">Имя</th>
+            <th th:text="${student.getLastName()}">Фамилия</th>
+            <th th:text="${student.getMiddleName()}">Отчество</th>
+            <th th:text="${student.getGroup().getGroupName()}">Группа</th>
+            <th th:text="${student.getEmail()}">Email</th>
+            <th>Курс</th>
+            <th><a th:href="@{students/{id}(id=${student.getId()})}">Подробнее</a></th>
+        </tr>
+    </table>
 </div>
-<a href="http://localhost:8080/students/new">Создать нового студента</a>
-<br>
-<a href="http://localhost:8080/home">Домой</a>
 </body>
 </html>

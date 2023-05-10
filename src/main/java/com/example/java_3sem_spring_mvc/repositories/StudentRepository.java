@@ -9,5 +9,12 @@ import java.util.List;
 
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Long> {
-    List<Student> findByIdOrFirstNameContainingOrLastNameContainingOrMiddleNameContainingOrGroup(Long id, String firstName, String lastName, String middleName, Group group);
+    List<Student> findByIdOrFirstNameContainingOrLastNameContainingOrMiddleNameContainingOrGroup(Long id,
+                                                                                                 String firstName,
+                                                                                                 String lastName,
+                                                                                                 String middleName,
+                                                                                                 Group group);
 }
+
+
+

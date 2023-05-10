@@ -2,17 +2,60 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
-  <title>Student</title>
+  <title>ЕГЭ на 100</title>
+  <link rel="stylesheet" type="text/css" href="/css/styleForOneGroup.css" />
 </head>
 <body>
-<p th:text="${Group}"/>
-<br>
-<a th:href="@{/groups/{id}/edit(id=${GroupIndex})}">Изменить</a>
-<br>
-<form th:method="DELETE" th:action="@{/groups/{id}(id=${GroupIndex})}">
-  <input type="submit" value="Удалить"/>
-</form>
-<br>
-<a href="http://localhost:8080/groups">Назад</a>
+<header>
+  <h1>Информация о группе</h1>
+</header>
+<nav>
+  <a href="http://localhost:8080/home">Главная</a>
+</nav>
+<div class="container">
+  <div class="info">
+    <label>Id:</label>
+    <p th:text="${GroupIndex}">Id</p>
+    <label>Название:</label>
+    <p th:text="${Group.getGroupName()}">Название группы</p>
+    <label>Курс:</label>
+    <p th:text="${Group.getCourse().getCourseName()}">Название курса</p>
+    <label>Количество учеников:</label>
+    <p th:text="${Group.getLenSt()}">15</p>
+  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>Имя</th>
+      <th>Фамилия</th>
+      <th>Отчество</th>
+      <th>Группа</th>
+      <th>Email</th>
+      <th>Телефон</th>
+      <th>Курс</th>
+      <th>Подробнее</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="student : ${Group.getStudents()}">
+      <th th:text="${student.getFirstName()}">Имя</th>
+      <th th:text="${student.getLastName()}">Фамилия</th>
+      <th th:text="${student.getMiddleName()}">Отчество</th>
+      <th th:text="${student.getGroup().getGroupName()}">Группа</th>
+      <th>Email</th>
+      <th>Телефон</th>
+      <th>Курс</th>
+      <th><a th:href="@{http://localhost:8080/students/{id}(id=${student.getId()})}">Подробнее</a></th>
+    </tr>
+
+    </tbody>
+  </table>
+
+  <a href="http://localhost:8080/groups" class="btn">Назад</a>
+  <form th:method="DELETE" th:action="@{/groups/{id}(id=${GroupIndex})}">
+    <input type="submit" class="btn btn-danger" value="Удалить"/>
+  </form>
+  <a th:href="@{/groups/{id}/edit(id=${GroupIndex})}"class="btn">Изменить</a>
+</div>
 </body>
 </html>

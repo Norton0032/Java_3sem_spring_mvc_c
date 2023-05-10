@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Spring tasks</title>
+    <title>ЕГЭ на 100</title>
+    <link rel="stylesheet" type="text/css" href="/css/styleForMany.css" />
 </head>
 <body>
-<p th:text="${GroupsName}"/>
-<div th:each="gr : ${Groups}">
-    <a th:href="@{groups/{id}(id=${gr.getId()})}" th:text="${gr.toString()}"/>
-    <hr>
+<header>
+    <h1>Список Групп</h1>
+</header>
+<nav>
+    <a href="http://localhost:8080/home">Главная</a>
+    <a href="http://localhost:8080/groups/new">Добавить группу</a>
+</nav>
+<div class="container">
+    <h2>Список групп</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Имя группы</th>
+            <th>Название курса</th>
+            <th>Количество учеников</th>
+            <th>Подробнее</th>
+        </tr>
+        <tr th:each="gr : ${Groups}">
+            <th th:text="${gr.getId()}">Id</th>
+            <th th:text="${gr.getGroupName()}">Имя</th>
+            <th th:text="${gr.getCourse().getCourseName()}">Курс</th>
+            <th th:text="${gr.getLenSt()}">Количество</th>
+            <th><a th:href="@{groups/{id}(id=${gr.getId()})}">Подробнее</a></th>
+        </tr>
+    </table>
 </div>
-<a href="http://localhost:8080/groups/new">Создать новую группу</a>
-<br>
-<a href="http://localhost:8080/home">Домой</a>
 </body>
 </html>
